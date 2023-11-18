@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: go-stdout
+  name: go-stdout
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-stdout
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: go-stdout
+    spec:
+      containers:
+      - image: ghcr.io/nkzk/go-stdout:main
+        name: go-stdout
+        resources: {}
+        ports:
+        - containerPort: 8080
