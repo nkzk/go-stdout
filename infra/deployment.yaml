@@ -19,6 +19,11 @@ spec:
       containers:
       - image: ghcr.io/nkzk/go-stdout:main
         name: go-stdout
-        resources: {}
+        resources:
+          requests: 
+            cpu: 10m
+            memory: 40Mi
+          limits:
+            memory: 50Mi
         ports:
         - containerPort: 8080
